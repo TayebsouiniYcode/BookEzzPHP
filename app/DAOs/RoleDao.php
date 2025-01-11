@@ -13,9 +13,6 @@ class RoleDao {
 
         $query = "INSERT INTO roles (role_name , role_description, logo) VALUES ( '" . $role->getRoleName() . "', '" . $role->getDescription() . "', '" . $role->getLogo() . "');";
 
-        // die($query);
-
-        // die($query);
 
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt->execute();

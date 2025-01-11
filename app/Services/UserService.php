@@ -83,26 +83,17 @@ class UserService {
 
     public function findByEmailAndPassword(Utilisateur $user) : Utilisateur
     {
-        Message::in("la méthode findByEmailAndPassword dans la classe UserService");
-        var_dump($user);
+
         $user = $this->userRepository->findByEmailAndPassword($user);
-        Message::in("L'utilisateur avec ces attr : ");
-        var_dump($user);
+
         if (!$user) {
-            Message::in("l'utilisateur est null");
             return new Utilisateur();
         }
 
-        Message::in("L'ajout du role a l'instance de la classe user");
+        $user->setRole(
+            $this->roleService->getRoleById($user->getRole_ID())
+        );
 
-        //TODO implémentation de cette fonction .......
-        // --------------------------------------------
-        // $user->setRole(
-        //     $this->roleService->getRoleById($user->getRole_ID())
-        // );
-
-        Message::in("L'utilisateur avec leur rôle ");
-        var_dump($user);
         return $user;
     }
 }

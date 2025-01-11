@@ -15,22 +15,10 @@ class RoleService {
         }
 
         $role = $this->roleRepository->findByName($name);
-        // $role = $this->roleRepository->create($$role);
-
-
-        // $isTrue = false;
-        // $isTrue = !$isTrue;
-
-        // if ($role == null) {
-        //     if ($isTrue) { 
-        //         $newRole = new Role();
-        //         $newRole->setRoleName($name);
-        //         return $this->roleRepository->create($newRole);
-        //     } else {
-        //         throw new Exception("Role Not Found in database");
-        //     }
-        // }
-
         return $role;
+    }
+
+    public function getRoleById(int $id) {
+        return $this->roleRepository->findById($id);
     }
 }

@@ -20,11 +20,7 @@ class UserRepository {
     }
 
     public function findByEmailAndPassword(Utilisateur $user) : mixed {
-        Message::in("je suis dans la méthode findbyemailandpassword de la classe USerRepository");
         $query = "SELECT id, firstname, lastname, email, phone, photo, role_id, password FROM utilisateurs WHERE email = '" . $user->getEmail() . "' AND password = '". $user->getPassword() ."';";
-
-        Message::in("la requête");
-        Message::in($query);
         $stmt = Database::getInstance()->getConnection()->prepare($query);
         $stmt->execute();
 

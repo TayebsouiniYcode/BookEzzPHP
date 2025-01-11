@@ -4,7 +4,7 @@ class Database {
     private static $servername = "localhost";
     private static $username = "root";
     private static $password = "";
-    private static $dbname = "biblioKKK";
+    private static $dbname = "bookezzphp";
     private static $connexion;
     private static $instance;
     public static $counter = 0;

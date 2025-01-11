@@ -20,4 +20,12 @@ class RoleRepository {
     public function create(Role $role): Role {
         return $this->roleDao->create($role);
     }
+
+    public function findById(int $id) : Role {
+        $query = "SELECT id, role_name, role_description, logo FROM roles WHERE id = " . $id . ";";
+        $stmt = Database::getInstance()->getConnection()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchObject(Role::class);
+    }
 }

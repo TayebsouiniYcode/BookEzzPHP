@@ -23,7 +23,6 @@ include './../app/Controllers/AuthController.php';
 
 class Test {
     public function __construct() {
-        Message::in("Test Contructor");
     }
     
     public function testRole() {
@@ -88,16 +87,26 @@ class Test {
     }
 
     public function loginTest() {
-        Message::in("méthode Login dans la classe Test");
         $loginForm = LoginForm::instanceWithAllArgs("Walid1s@gmail.com", "walidlove");
 
         
         $authController = new AuthController();
-        Message::in("ceci est une instance de la classe authControlleur dans la méthode login TEst");
-        var_dump($authController);
 
         $authController->login($loginForm);
         
+    }
+
+    public function testUserDao() {
+        $userDao = new UserDao();
+        $userList = $userDao->findAll();
+
+        var_dump($userList);
+
+        echo "--------------------";
+
+        $user = $userDao->findById(3);
+
+        var_dump($user);
     }
 
     public function display($obj) {

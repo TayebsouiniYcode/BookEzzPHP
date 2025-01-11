@@ -19,6 +19,14 @@ class Utilisateur {
         $this->role = new Role();
     }
 
+    public static function instanceWithId(int $id): self {
+        $instance = new self();
+
+        $instance->id = $id;
+
+        return $instance;
+    }
+
     public static function instanceWithFirstnameAndLastname(string $firstName, string $lastName){
         $instance = new self();
         $instance -> firstname = $firstName ;
