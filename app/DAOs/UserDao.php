@@ -16,8 +16,8 @@ class UserDao {
         return $user;
     }
 
-    public function delete(Utilisateur $user) : int {
-        $query = "DELETE FROM utilisateurs WHERE id = " . $user->getId() . " ;";
+    public function delete(int $id) : int {
+        $query = "DELETE FROM utilisateurs WHERE id = " . $id . " ;";
 
         $statement = Database::getInstance()->getConnection()->prepare($query);
         $statement->execute();
