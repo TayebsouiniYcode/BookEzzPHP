@@ -2,7 +2,6 @@
 
 class RoleDao {
     public function create(Role $role): Role{
-        die($role);
         if (empty($role->getDescription()) || $role->getDescription() == null) {
             $role->setDescription("default Description");
         }
@@ -21,8 +20,10 @@ class RoleDao {
             ->getConnection()
             ->lastInsertId());
 
-
-
         return $role;
+    }
+
+    public function update(Role $role): Role {
+        $query = "UPDATE roles SET ";
     }
 }

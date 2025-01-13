@@ -1,1 +1,0 @@
-# BiblioSchool-Strecture
