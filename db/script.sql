@@ -59,10 +59,10 @@ CREATE TABLE reservations(
 )ENGINE=INNODB;
 
 CREATE TABLE tag_livre(
-livre_id INT,
- FOREIGN KEY (livre_id) REFERENCES livres(id),
-tag_id INT, 
- FOREIGN KEY  (tag_id) REFERENCES tags(id),
- PRIMARY KEY (livre_id, tag_id)
+    livre_id INT,
+    FOREIGN KEY (livre_id) REFERENCES livres(id),
+    tag_id INT, 
+    FOREIGN KEY  (tag_id) REFERENCES tags(id),
+    PRIMARY KEY (livre_id, tag_id)
 )ENGINE=INNODB;
 
