@@ -1,22 +1,8 @@
 <?php 
 
-include './../app/Core/Route.php';
-include './../routes/web.php';
-include './../app/DAOs/Dao.php';
-include './../app/DAOs/Product.php';
+include './../app/Core/Application.php';
+include './../app/http/Request.php';
 
-// $route = $_SERVER["REQUEST_URI"];
+$app = new Application();
 
-
-// echo $route;
-
-
-$product = new Product();
-
-// $dao->find(["id" => 1, "name" => "yes"]); // yes
-
-$product->find(
-    ["id" => 1 ,
-    "Title" => "Admin",
-    "Quantity" => 24.00 ]
-);
+$app->run();

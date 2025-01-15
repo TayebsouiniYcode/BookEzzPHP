@@ -23,10 +23,6 @@ class AuthController {
         }
     }
 
-
-
-
-
     public function logout(): void {
 
     }

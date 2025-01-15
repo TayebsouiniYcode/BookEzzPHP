@@ -29,11 +29,11 @@ class Database {
     }
 
     public static function getInstance() {
-        if(!self::$instance){
-            self::$instance = new Database();
-            self::$counter++;
-        }
-            return self::$instance ;
+            if(!self::$instance){
+                self::$instance = new Database();
+                self::$counter++;
+            }
+            return self::$instance;
         }
         
         public function getConnection(){
