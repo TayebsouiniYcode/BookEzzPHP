@@ -5,7 +5,11 @@ class AuthController {
 
     public function __construct() {
         $this->authService = new AuthService();
-    }   
+    }
+
+    public function index() {
+        include './../views/login.php';
+    }
     
     public function register(RegisterForm $registerForm) {
        try {

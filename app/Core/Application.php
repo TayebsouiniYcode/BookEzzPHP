@@ -1,24 +1,28 @@
 <?php 
 
 class Application {
+    public static ?Application $app = null;
+    public Request $request;
+    public Router $router;
 
-    private Request $request;
-    public Appication $application;
-    
-    
-    public function __construct() {
+    private function __construct() {
         $this->request = new Request();
+        $this->router = new Router();
     }
 
-    public function request() : Request {
-        return $this->request;
+    public static function run() {
+        self::checkIsntance();
+
+        (self::$app)->router->showRoutes();
     }
 
-    public function run() {
-        $route = $this->resolveRoute();
+    private static function checkIsntance() {
+        if (!self::$app) {
+            self::$app = new self();
+        }
     }
 
-    public function resolveRoute() {
-        $path = $this->request()->getPath();
+    public static function router() {
+        return (self::$app)->router;
     }
 }
