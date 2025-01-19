@@ -7,6 +7,7 @@ class Application {
     
     
     public function __construct() {
+        $this->router = new Router();
         $this->request = new Request();
     }
 
@@ -20,5 +21,8 @@ class Application {
 
     public function resolveRoute() {
         $path = $this->request()->getPath();
+
+        $this->router();
+
     }
 }
