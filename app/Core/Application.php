@@ -1,28 +1,19 @@
 <?php 
 
 class Application {
-    public static ?Application $app = null;
+    public static Application $app;
+    public ?Router $router;
     public Request $request;
-    public Router $router;
+    public Response $response;
 
-    private function __construct() {
-        $this->request = new Request();
+    public function __construct() {
         $this->router = new Router();
+        $this->request = new Request();
+        $this->response = new Response();
+        self::$app = $this;
     }
 
-    public static function run() {
-        self::checkIsntance();
-
-        (self::$app)->router->showRoutes();
-    }
-
-    private static function checkIsntance() {
-        if (!self::$app) {
-            self::$app = new self();
-        }
-    }
-
-    public static function router() {
-        return (self::$app)->router;
-    }
+    public function run() {
+        $this->router->routing($this->request, $this->response);
+    } 
 }

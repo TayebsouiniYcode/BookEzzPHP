@@ -1,8 +1,6 @@
 <?php 
 
 class Router {
-    private Request $request;
-    private Response $response;
     private $routes = [];
 
     public function __contruct(Request $request, Response $response) {
@@ -10,24 +8,45 @@ class Router {
         $this->response = $response;
     }
 
+
+    public function routing(Request $request, Response $response) {
+        $path = $request->getPath();
+        $method = $request->getMethod();
+
+        if ($method == 'get') {
+            $this->executeRoute($path, $request, $response);
+        }
+
+        if ($method == 'post') {
+            $model = $this->request->getModel();
+            var_dump($model);
+        }
+    }
+
+    public function executeRoute(array $path, Request $request, Response $response) {
+        $controller = new $path["controller"];
+        return $controller->{$path['method']}($request, $response);
+    }
     
-    public function render(array $route, Request $request) {
-        $controllerClassName = ucfirst($route["controller"]) . "Controller";
-        $method = $route["method"];
+    // public function render(array $route, Request $request) : void {
+    //     $controllerClassName = ucfirst($route["controller"]) . "Controller";
+    //     $method = $route["method"];
 
-        $controller = new $controllerClassName();
-        $controller->{$method}($request);
-    }
+    //     $controller = new $controllerClassName();
+    //     $controller->{$method}($request);
 
-    public function get(string $path, array $callback) {
-        $this->routes["get"][$path] = $callback;
-    }
+    //     echo "Test";
+    // }
 
-    public function post(string $path, array $callback) {
-        $this->routes["post"][$path] = $callback;
-    }
+    // public function get(string $path, array $callback): void {
+    //     $this->routes["get"][$path] = $callback;
+    // }
 
-    public function showRoutes() : void {
-        var_dump($this->routes);
-    }
+    // public function post(string $path, array $callback): void {
+    //     $this->routes["post"][$path] = $callback;
+    // }
+
+    // public function showRoutes() : void {
+    //     var_dump($this->routes);
+    // }
 }

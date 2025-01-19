@@ -6,14 +6,18 @@ class Request {
         $requestURI = $_SERVER["REQUEST_URI"];
         
         if ($requestURI == '/') {
-            return ["controller" => "Home", "method" => "index"];
+            return ["controller" => "HomeController", "method" => "index"];
         }
 
         $path = $this->resolvePath($requestURI);
 
         if (count($path) == 2) {
-            return ["controller" => $path[0], "method" => $path[1]];
+            return ["controller" => ucfirst($path[0]) . "Controller", "method" => $path[1]];
         }
+    }
+
+    public function getMethod() : string {
+        return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
     public function getModel() {
