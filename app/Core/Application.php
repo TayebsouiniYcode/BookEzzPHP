@@ -1,28 +1,19 @@
 <?php 
 
 class Application {
+    public static Application $app;
+    public ?Router $router;
+    public Request $request;
+    public Response $response;
 
-    private Request $request;
-    public Appication $application;
-    
-    
     public function __construct() {
         $this->router = new Router();
         $this->request = new Request();
-    }
-
-    public function request() : Request {
-        return $this->request;
+        $this->response = new Response();
+        self::$app = $this;
     }
 
     public function run() {
-        $route = $this->resolveRoute();
-    }
-
-    public function resolveRoute() {
-        $path = $this->request()->getPath();
-
-        $this->router();
-
-    }
+        $this->router->routing($this->request, $this->response);
+    } 
 }
