@@ -1,7 +1,5 @@
 <?php 
 
-// include './../app/Models/Role.php';
-// include './Reservation.php';
 
 class Utilisateur {
     private int $id = 0;

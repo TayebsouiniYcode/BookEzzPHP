@@ -15,10 +15,6 @@ class Livre {
     private string $auteur = "";
     private array $reservations = [];
 
-
-
-    public function __construct(){}
-
     public static function instancewithTitreAndDescriptionCourt(string $titre,string $description_courte)
     {
         $instance = new self();

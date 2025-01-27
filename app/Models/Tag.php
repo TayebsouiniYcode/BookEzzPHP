@@ -1,7 +1,6 @@
 <?php
 
 
-include_once 'Etiquette.php';
 
 class Tag extends Etiquette
 {

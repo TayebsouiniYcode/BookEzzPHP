@@ -1,7 +1,5 @@
 <?php
 
-include_once 'Etiquette.php';
-
 
 class Categorie extends Etiquette
 { 

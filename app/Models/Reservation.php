@@ -1,6 +1,5 @@
 <?php
-include_once 'Utilisateur.php';
-include_once 'Livre.php';
+
 class Reservation
 {
     private int $id;
