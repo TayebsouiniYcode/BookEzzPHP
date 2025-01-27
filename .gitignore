@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /public/node_modules
 
 /vendor
@@ -28,3 +29,6 @@ composer.phar
 
 
 .env
+=======
+./public/node_modules
+>>>>>>> 2f4ea6f559f33a413e4e5909d673461b7f2187f3
