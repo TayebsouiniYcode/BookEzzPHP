@@ -12,6 +12,13 @@ include './../app/Models/Utilisateur.php';
 
 include './../app/Core/ORM/Migration.php';
 
+
+
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
+
+
 $migration = new Migration();
 
 $migration->migrate();

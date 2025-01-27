@@ -3,6 +3,7 @@
 class Migration {
     public function migrate() {
         $models = $this->getModels();
+        
         var_dump($models);
     }
 
@@ -14,7 +15,6 @@ class Migration {
         }
 
         return $this->getAttributs($listOfModels);
-
     }
 
     private function resolveListOfModels(array $filesNames) {
